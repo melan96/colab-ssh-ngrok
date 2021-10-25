@@ -1,5 +1,4 @@
-import requests
-from import_json_configuration import loaddata
+from configurations.import_json_configuration import loaddata
 
 NGROK_FILE_LOCATION=""
 FETCHING_METHOD=""
