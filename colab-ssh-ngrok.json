@@ -1,0 +1,12 @@
+{
+  "colab-ssh-ngrok version": "0.0.1",
+
+  "ngrok_download_resource":{
+
+    "resource_url": "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip",
+    "fetching_method": "HTTPS",
+    "ngrok_file_name": "ngrok-stable-linux-amd64",
+    "backend_os_ngrok": "linux"
+
+  }
+}
