@@ -1,0 +1,9 @@
+# Ignore Mac system files
+.DS_store
+
+# Ignore all artifacts which downloads by scripts
+*.zip
+
+#Ignore all API related env files
+.env
+
