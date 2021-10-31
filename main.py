@@ -1,6 +1,7 @@
 from configurations.import_json_configuration import loaddata
 import requests
 from clint.textui import progress
+import os
 
 
 NGROK_FILE_LOCATION=""
@@ -26,6 +27,33 @@ def download_ngrok_file(ngrokresource,filename):
                 f.flush()
 
     print(f"------------ Downloading File {config.NGROK_FILE_NAME} : Completed ------------")
+
+def setpasswd(passkey):
+    """
+        This function is set passwd for sshprocess for user:root, 
+        When making a ssh session for remote instance. required a password for
+        establishing secure connection
+
+        example:
+        >> ssh_ngrok.setpasswd("your-passkey")
+
+        
+    """
+    os.system(f"echo  \"root:{passkey}\" | chpasswd > /dev/null")
+    __setupconf__
+    
+
+def __setupconf__():
+
+    """
+    This function added the additional sshd configuration for remote connection
+    """
+
+    os.system("echo \"PasswordAuthentication yes\" > /etc/ssh/sshd_config")
+    os.system("echo \"PermitUserEnvironment yes\" > /etc/ssh/sshd_config")
+    os.system("echo \"PermitRootLogin yes\" > /etc/ssh/sshd_config")
+    os.system("service ssh restart > /dev/null")
+
 
 
 def main():
