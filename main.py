@@ -3,15 +3,20 @@ import requests
 from clint.textui import progress
 import os
 
+from ngrok_core import NgRokCore
+
 
 NGROK_FILE_LOCATION=""
 FETCHING_METHOD=""
 NGROK_FILE_NAME=""
 BACKEND_OS_NGROK=""
+ngcore
+
 
 class Configration:
     def __init__(self):
         self.NGROK_FILE_LOCATION, self.FETCHING_METHOD, self.NGROK_FILE_NAME, self.BACKEND_OS_NGROK = loaddata()
+        
 
 def download_ngrok_file(ngrokresource,filename):
     config = Configration()
@@ -42,6 +47,9 @@ def setpasswd(passkey):
     os.system(f"echo  \"root:{passkey}\" | chpasswd > /dev/null")
     __setupconf__
     
+def setauth(self,auth):
+    ngrokcore = NgRokCore(authkey=auth)
+
 
 def __setupconf__():
 
